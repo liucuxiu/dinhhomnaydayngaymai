@@ -1,13 +1,9 @@
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
-import useGoldPriceByDay from '../hooks/useGoldPriceByDay';
+import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
+import useGoldPriceByHour from '../hooks/useGoldPriceByHour';
 
-interface Props {
-  month: string;
-  year: string;
-}
 
-const ChartByDay = ({ month, year}: Props) => {
-  const { data, isLoading, isError } = useGoldPriceByDay(month, year);
+const ChartByHour = () => {
+  const { data, isLoading, isError } = useGoldPriceByHour();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -19,10 +15,10 @@ const ChartByDay = ({ month, year}: Props) => {
 
   return (
     <div>
-      <h1>Gold Price by Days in {month}/{year}</h1>
+      <h1>Gold Price by Hour Today</h1>
       <LineChart width={1000} height={300} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="updatedAt" tickFormatter={(date) => new Date(date).getHours().toLocaleString()}/>
+        <XAxis dataKey="updatedAt" tickFormatter={(date) => new Date(date).toLocaleDateString()}/>
         <YAxis />
         <Tooltip />
         <Legend />
@@ -35,8 +31,9 @@ const ChartByDay = ({ month, year}: Props) => {
         <Line type="monotone" dataKey="vangMiengSJC.buy" stroke="#fdbb18" activeDot={{ r: 8 }} />
 
       </LineChart>
+      
     </div>
   );
 };
 
-export default ChartByDay;
+export default ChartByHour;

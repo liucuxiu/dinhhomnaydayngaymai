@@ -1,4 +1,5 @@
 import './App.css'
+import ChartByHour from './components/ChartByHour'
 import GoldPriceDay from './pages/GoldPriceDay'
 import GoldPriceMonth from './pages/GoldPriceMonth'
 import GoldPriceYear from './pages/GoldPriceYear'
@@ -11,6 +12,9 @@ function App() {
         
       </div>
       <h1>Gold Price</h1>
+      <div style={{margin: 100}}>
+        <ChartByHour/>
+      </div>
       <div style={{margin: 100}}>
           <GoldPriceDay />
       </div>
