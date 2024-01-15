@@ -9,9 +9,9 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => (
   <LineChart width={1000} height={300} data={data}>
     <CartesianGrid strokeDasharray="3 3" />
     <XAxis dataKey="updatedAt"
-           tickFormatter={(date) => new Date(date).toLocaleDateString()}/>
+           tickFormatter={(date) => new Date(date * 1000).toISOString()}/>
     <YAxis />
-    <Tooltip labelFormatter={(date) => new Date(date).toLocaleDateString()} />
+    <Tooltip labelFormatter={(date) => new Date(date * 1000).toISOString()} />
     <Legend />
     <Line type="monotone" dataKey="nhanTronVRTL.sell" stroke="#82ca9d" activeDot={{ r: 8 }} />
     <Line type="monotone" dataKey="vangMiengVRTL.sell" stroke="#8884d8" activeDot={{ r: 8 }} />
