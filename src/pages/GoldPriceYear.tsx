@@ -2,30 +2,30 @@ import { useState } from 'react';
 import ChartByYear from '../components/ChartByYear';
 
 const GoldPriceYear = () => {
-  const [startYear, setStartYear] = useState<string>("2010");
-  const [endYear, setEndYear] = useState<string>("2023");
+    const [startDate, setStartDate] = useState<string>("2021-01-01");
+    const [endDate, setEndDate] = useState<string>("2021-12-31");
 
-  const handleStartYearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setStartYear(String(event.target.value));
-  };
+    const handleStartDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setStartDate(event.target.value);
+    };
 
-  const handleEndYearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEndYear(String(event.target.value));
-  };
+    const handleEndDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEndDate(event.target.value);
+    };
 
-  return (
-    <div>
-      <h1>Gold Price by Year Range</h1>
-        <label>Start Year: </label>
-        <input type="text" value={startYear} onChange={handleStartYearChange} />
-        <span> </span>
-        <label>End Year: </label>
-        <input type="text" value={endYear} onChange={handleEndYearChange} />
+    return (
       <div>
-        <ChartByYear startYear={startYear} endYear={endYear} />
+        <h1>Gold Price by Date Range</h1>
+          <label>Start Date: </label>
+          <input type="date" value={startDate} onChange={handleStartDateChange} />
+          <span> </span>
+          <label>End Date: </label>
+          <input type="date" value={endDate} onChange={handleEndDateChange} />
+        <div>
+          <ChartByYear startDate={startDate} endDate={endDate} />
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default GoldPriceYear;

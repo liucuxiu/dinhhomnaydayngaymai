@@ -1,8 +1,9 @@
 import { useQuery } from 'react-query';
+import { BASE_URL } from '../constants/api.ts';
 
 const useGoldPriceByHour = () => {
   const fetchGoldPriceByHour = async () => {
-    const response = await fetch(import.meta.env.VITE_API);
+    const response = await fetch(BASE_URL);
     const data = await response.json();
     return data;
   };
