@@ -4,8 +4,10 @@ import { getStartOfWeek, getEndOfWeek } from '../utils/formatDate';
 
 const GoldPriceYear = () => {
     const [startDate, setStartDate] = useState<Date>(getStartOfWeek());
-    const [endDate, setEndDate] = useState<Date>(getEndOfWeek());
-    
+    const now = new Date();
+    const endOfWeek = getEndOfWeek();
+    const [endDate, setEndDate] = useState<Date>(endOfWeek > now ? now : endOfWeek);
+        
     const handleStartDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       setStartDate(new Date(event.target.value));
     };
