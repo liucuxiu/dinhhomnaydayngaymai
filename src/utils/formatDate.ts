@@ -10,7 +10,6 @@ export const formatDate = (date: Date) => {
 };
 
 export const formatEpochDate = (epochDate: number) => {
-  const date = new Date(0); // The 0 there is the key, which sets the date to the epoch
-  date.setUTCSeconds(epochDate);
-  return formatDate(date);
+  const date = new Date(epochDate*1000)
+  return date.toISOString();
 }
