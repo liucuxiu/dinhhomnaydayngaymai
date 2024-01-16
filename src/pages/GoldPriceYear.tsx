@@ -21,7 +21,7 @@ const GoldPriceYear = () => {
           <input type="date" value={startDate.toISOString().split('T')[0]} onChange={handleStartDateChange} />
           <span> </span>
           <label>End Date: </label>
-          <input type="date" value={startDate.toISOString().split('T')[0]} onChange={handleEndDateChange} />
+          <input type="date" value={endDate.toISOString().split('T')[0]} onChange={handleEndDateChange} />
         <div>
           <ChartByYear startDate={startDate} endDate={endDate} />
         </div>
