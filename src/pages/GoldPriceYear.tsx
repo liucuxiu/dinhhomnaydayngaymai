@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import ChartByYear from '../components/ChartByYear';
+import { getStartOfWeek, getEndOfWeek } from '../utils/formatDate';
 
 const GoldPriceYear = () => {
-    const [startDate, setStartDate] = useState<Date>(new Date());
-    const [endDate, setEndDate] = useState<Date>(new Date());
-
-    const handleStartDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const [startDate, setStartDate] = useState<Date>(getStartOfWeek());
+    const [endDate, setEndDate] = useState<Date>(getEndOfWeek());
+    
+    const handleStartDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       setStartDate(new Date(event.target.value));
     };
 
-    const handleEndDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleEndDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       setEndDate(new Date(event.target.value));
     };
 
