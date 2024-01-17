@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1>Gold Price</h1>
+      <h1>Giá vàng</h1>
       {/*<div style={{margin: 100}}>*/}
       {/*  <ChartByHour/>*/}
       {/*</div>*/}
