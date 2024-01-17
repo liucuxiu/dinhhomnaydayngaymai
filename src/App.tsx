@@ -5,9 +5,6 @@ function App() {
 
   return (
     <>
-      <div>
-        
-      </div>
       <h1>Gold Price</h1>
       {/*<div style={{margin: 100}}>*/}
       {/*  <ChartByHour/>*/}
@@ -20,7 +17,7 @@ function App() {
       {/*  <GoldPriceMonth />*/}
       {/*</div>*/}
       
-      <div style={{margin: 100}}>
+      <div>
         <GoldPriceYear />
       </div>
       

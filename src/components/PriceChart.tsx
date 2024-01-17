@@ -20,17 +20,28 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => (
                formatter={(value) => `${value.toLocaleString()}`}
       />
       <Legend/>
-      <Line type="monotone" dataKey="nhanTronVRTL.sell" stroke="#1136ad" activeDot={{ r: 8 }} strokeWidth={3}/>
-      <Line type="monotone" dataKey="nhanTronVRTL.buy" stroke="#7f92ce" activeDot={{ r: 8 }} strokeWidth={3}/>
+      <Line type="monotone"
+            dataKey="nhanTronVRTL.sell"
+            name="Nhẫn tròn trơn VRTL (bán)" stroke="#fdbb18"
+            activeDot={{ r: 8 }} strokeWidth={3}/>
+      <Line type="monotone"
+            dataKey="nhanTronVRTL.buy"
+            name="Nhẫn tròn trơn VRTL (mua)"
+            stroke="#ecd089"
+            activeDot={{ r: 8 }} strokeWidth={3}/>
 
-      <Line type="monotone" dataKey="vangMiengVRTL.sell" stroke="#cd1b1b" activeDot={{ r: 8 }} strokeWidth={3} />
-      <Line type="monotone" dataKey="vangMiengVRTL.buy" stroke="#f1a6a6" activeDot={{ r: 8 }} strokeWidth={3}/>
-
-      <Line type="monotone" dataKey="vangMiengSJC.sell" stroke="#fdbb18" activeDot={{ r: 8 }} strokeWidth={3}/>
-      <Line type="monotone" dataKey="vangMiengSJC.buy" stroke="#ecd089" activeDot={{ r: 8 }} strokeWidth={3}/>
-
-
-
+      <Line type="monotone"
+            dataKey="vangMiengSJC.sell"
+            name="Nhẫn vàng miếng SJC (bán)"
+            stroke="#cd1b1b"
+            activeDot={{ r: 8 }}
+            strokeWidth={3}/>
+      <Line type="monotone"
+            dataKey="vangMiengSJC.buy"
+            name="Nhẫn vàng miếng SJC (mua)"
+            stroke="#f1a6a6"
+            activeDot={{ r: 8 }}
+            strokeWidth={3}/>
     </LineChart>
 );
 
