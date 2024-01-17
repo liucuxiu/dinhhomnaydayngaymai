@@ -11,7 +11,7 @@ const ChartByYear = ({ startDate, endDate}: Props) => {
 
   return (
     <div>
-      <h1>Gold Price by Years from {startDate.toDateString()} to {endDate.toDateString()}</h1>
+      <h3>From {startDate.toDateString()} To {endDate.toDateString()} </h3>
       <PriceChart data={data} />
     </div>
   );
