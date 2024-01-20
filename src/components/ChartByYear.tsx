@@ -11,7 +11,6 @@ const ChartByYear = ({ startDate, endDate}: Props) => {
 
   return (
     <div>
-      <h3>From {startDate.toDateString()} To {endDate.toDateString()} </h3>
       <PriceChart data={data} />
     </div>
   );

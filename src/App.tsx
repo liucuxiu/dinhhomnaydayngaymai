@@ -1,28 +1,32 @@
-import './App.css'
-import GoldPriceYear from './pages/GoldPriceYear'
+import './App.css';
+import GoldPriceYear from './pages/GoldPriceYear';
+import CurrentPriceTable from './components/CurrentPriceTable.tsx';
+import { Col, Container, Row } from 'react-bootstrap';
 
 function App() {
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
 
   return (
     <>
-      <h1>Giá vàng</h1>
-      {/*<div style={{margin: 100}}>*/}
-      {/*  <ChartByHour/>*/}
-      {/*</div>*/}
-      {/*<div style={{margin: 100}}>*/}
-      {/*    <GoldPriceDay />*/}
-      {/*</div>*/}
+      <Container>
+        <Row>
+          <Col>
+            <CurrentPriceTable startDate={yesterday} endDate={today}/>
+          </Col>
+        </Row>
 
-      {/*<div style={{margin: 100}}>*/}
-      {/*  <GoldPriceMonth />*/}
-      {/*</div>*/}
-      
-      <div>
-        <GoldPriceYear />
-      </div>
-      
+        <Row>
+          <Col>
+            <GoldPriceYear />
+          </Col>
+        </Row>
+
+      </Container>
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;

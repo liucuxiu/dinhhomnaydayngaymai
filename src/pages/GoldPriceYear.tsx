@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
-import ChartByYear from '../components/ChartByYear';
 import { getStartOfWeek, getEndOfWeek } from '../utils/formatDate';
+import ChartByYear from '../components/ChartByYear';
 
 const GoldPriceYear = () => {
   const [startDate, setStartDate] = useState<Date>(getStartOfWeek());
@@ -23,7 +23,7 @@ const GoldPriceYear = () => {
       <span> </span>
       <label>End Date: </label>
       <input type="date" value={endDate.toISOString().split('T')[0]} onChange={handleEndDateChange}/>
-      <div>
+      <div className="mt-4">
         <ChartByYear startDate={startDate} endDate={endDate}/>
       </div>
     </div>
