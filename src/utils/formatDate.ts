@@ -14,10 +14,22 @@ export const formatDateDMY = (date: Date) => {
   return `${day}/${month}/${year}`;
 };
 
+
+export const formatEpochDateDMY = (epochDate: number) => {
+  const date = new Date(epochDate*1000)
+  const newDate =  date.toISOString();
+  const day = String(newDate.slice(8,10)).padStart(2, '0');
+  const month = String(newDate.slice(5,7)).padStart(2, '0'); // Months are 0-indexed in JavaScript
+  const year = newDate.slice(0,4);
+
+  return `${day}/${month}/${year}`;
+}
+
 export const formatEpochDate = (epochDate: number) => {
   const date = new Date(epochDate*1000)
   return date.toISOString();
 }
+
 
 
 export const getStartOfWeek = () => {
