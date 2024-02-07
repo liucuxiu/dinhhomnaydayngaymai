@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import { formatEpochDateDMY } from '../utils/formatDate.ts';
+import { formatEpochDateDMYHHMM } from '../utils/formatDate.ts';
 
 interface ChartProps {
   data: [];
@@ -10,13 +10,13 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => (
   <LineChart width={1000} height={500} data={data}>
     <CartesianGrid strokeDasharray="3 3"/>
     <XAxis dataKey="updatedAt"
-           tickFormatter={(date) => formatEpochDateDMY(date)}/>
+           tickFormatter={(date) => formatEpochDateDMYHHMM(date)}/>
     <YAxis type="number"
            domain={['dataMin', 'dataMax']}
            tickCount={8}
            tickFormatter={(value) => `${value.toLocaleString()}`}
     />
-    <Tooltip labelFormatter={(date) => formatEpochDateDMY(date)}
+    <Tooltip labelFormatter={(date) => formatEpochDateDMYHHMM(date)}
              formatter={(value) => `${value.toLocaleString()}`}
     />
     <Legend/>

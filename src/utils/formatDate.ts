@@ -15,14 +15,17 @@ export const formatDateDMY = (date: Date) => {
 };
 
 
-export const formatEpochDateDMY = (epochDate: number) => {
+export const formatEpochDateDMYHHMM = (epochDate: number) => {
   const date = new Date(epochDate*1000)
   const newDate =  date.toISOString();
   const day = String(newDate.slice(8,10)).padStart(2, '0');
   const month = String(newDate.slice(5,7)).padStart(2, '0'); // Months are 0-indexed in JavaScript
   const year = newDate.slice(0,4);
+  const hours = newDate.slice(11,13);
+  const minutes = newDate.slice(14,16);
 
-  return `${day}/${month}/${year}`;
+  return `${day}/${month}/${year} ${hours}:${minutes}`;
+
 }
 
 export const formatEpochDate = (epochDate: number) => {
