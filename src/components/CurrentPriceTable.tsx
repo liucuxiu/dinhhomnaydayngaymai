@@ -20,10 +20,10 @@ const CurrentPriceTable = ({ startDate, endDate }: Props) => {
 
   if (!todayRecord || !yesterdayRecord) return null;
 
-  const isVangMiengSJCSellUpOrDown = todayRecord.vangMiengSJC.sell > yesterdayRecord.vangMiengSJC.sell ? 'green' : 'red';
   const isVangMiengSJCBuyUpOrDown = todayRecord.vangMiengSJC.buy > yesterdayRecord.vangMiengSJC.buy ? 'green' : 'red';
-  const isNhanTronVRTLSellUpOrDown = todayRecord.nhanTronVRTL.sell > yesterdayRecord.nhanTronVRTL.sell ? 'green' : 'red';
+  const isVangMiengSJCSellUpOrDown = todayRecord.vangMiengSJC.sell > yesterdayRecord.vangMiengSJC.sell ? 'green' : 'red';
   const isNhanTronVRTLBuyUpOrDown = todayRecord.nhanTronVRTL.buy > yesterdayRecord.nhanTronVRTL.buy ? 'green' : 'red';
+  const isNhanTronVRTLSellUpOrDown = todayRecord.nhanTronVRTL.sell > yesterdayRecord.nhanTronVRTL.sell ? 'green' : 'red';
 
   return (
     <div className="mb-3">
@@ -31,26 +31,26 @@ const CurrentPriceTable = ({ startDate, endDate }: Props) => {
         <thead>
           <tr>
             <th>Date</th>
-            <th>Vàng miếng SJC (bán)</th>
             <th>Vàng miếng SJC (mua)</th>
-            <th>Nhẫn tròn trơn VRTL (bán)</th>
+            <th>Vàng miếng SJC (bán)</th>
             <th>Nhẫn tròn trơn VRTL (mua)</th>
+            <th>Nhẫn tròn trơn VRTL (bán)</th>
           </tr>
         </thead>
         <tbody>
         <tr>
           <td>{startDate.toDateString()}</td>
-          <td>{yesterdayRecord.vangMiengSJC.sell}</td>
           <td>{yesterdayRecord.vangMiengSJC.buy}</td>
-          <td>{yesterdayRecord.nhanTronVRTL.sell}</td>
+          <td>{yesterdayRecord.vangMiengSJC.sell}</td>
           <td>{yesterdayRecord.nhanTronVRTL.buy}</td>
+          <td>{yesterdayRecord.nhanTronVRTL.sell}</td>
         </tr>
         <tr>
           <td>{endDate.toDateString()}</td>
-          <td style={{ color: isVangMiengSJCSellUpOrDown }}>{todayRecord.vangMiengSJC.sell}</td>
           <td style={{ color: isVangMiengSJCBuyUpOrDown }}>{todayRecord.vangMiengSJC.buy}</td>
-          <td style={{ color: isNhanTronVRTLSellUpOrDown }}>{todayRecord.nhanTronVRTL.sell}</td>
+          <td style={{ color: isVangMiengSJCSellUpOrDown }}>{todayRecord.vangMiengSJC.sell}</td>
           <td style={{ color: isNhanTronVRTLBuyUpOrDown }}>{todayRecord.nhanTronVRTL.buy}</td>
+          <td style={{ color: isNhanTronVRTLSellUpOrDown }}>{todayRecord.nhanTronVRTL.sell}</td>
         </tr>
 
         </tbody>
