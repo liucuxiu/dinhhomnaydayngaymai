@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import { formatDateDMY, formatEpochDate } from '../utils/formatDate.ts';
+import { formatEpochDate } from '../utils/formatDate.ts';
 
 interface ChartProps {
   data: [];
@@ -16,7 +16,7 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => (
            tickCount={8}
            tickFormatter={(value) => `${value.toLocaleString()}`}
     />
-    <Tooltip labelFormatter={(date) => formatDateDMY(date)}
+    <Tooltip labelFormatter={(date) => formatEpochDate(date)}
              formatter={(value) => `${value.toLocaleString()}`}
     />
     <Legend/>
@@ -34,13 +34,13 @@ const PriceChart: React.FC<ChartProps> = ({ data }) => (
           dot={false}
           activeDot={{ r: 8 }}
           strokeWidth={2}/>
-      <Line type="monotone"
-            dataKey="nhanTronVRTL.buy"
-            name="Nhẫn tròn trơn VRTL (mua)"
-            stroke="#ecd089"
-            dot={false}
-            activeDot={{ r: 8 }} strokeWidth={2}/>
-      <Line type="monotone"
+    <Line type="monotone"
+          dataKey="nhanTronVRTL.buy"
+          name="Nhẫn tròn trơn VRTL (mua)"
+          stroke="#ecd089"
+          dot={false}
+          activeDot={{ r: 8 }} strokeWidth={2}/>
+    <Line type="monotone"
           dataKey="nhanTronVRTL.sell"
           name="Nhẫn tròn trơn VRTL (bán)"
           stroke="#fdbb18"
