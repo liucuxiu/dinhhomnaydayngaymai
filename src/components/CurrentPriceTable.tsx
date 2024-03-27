@@ -1,7 +1,8 @@
 import useGoldPriceByYearRange from '../hooks/useGoldPriceByYearRange.ts';
-import { Table } from 'react-bootstrap';
+import { Image, Table } from 'react-bootstrap';
 import { formatEpochDate } from '../utils/formatDate.ts';
 import { isSameDay } from 'date-fns';
+import errorImage from '../assets/image.png';
 
 interface Props {
   startDate: Date;
@@ -14,13 +15,18 @@ const CurrentPriceTable = ({ startDate, endDate }: Props) => {
   if (!data) return (
     <div>
       Something went wrong. Please contact Chester and try again later.
+      <Image src={errorImage} alt="Error" fluid/>
     </div>
   );
 
-  const yesterdayRecord = data.findLast((item: { updatedAt: number; }) => isSameDay(formatEpochDate(item.updatedAt), startDate));
+  const yesterdayRecord = data.findLast((item: {
+    updatedAt: number;
+  }) => isSameDay(formatEpochDate(item.updatedAt), startDate));
 
 
-  const todayRecord = data.findLast((item: { updatedAt: number; }) => isSameDay(formatEpochDate(item.updatedAt), endDate));
+  const todayRecord = data.findLast((item: {
+    updatedAt: number;
+  }) => isSameDay(formatEpochDate(item.updatedAt), endDate));
 
   if (!todayRecord || !yesterdayRecord) return null;
 
@@ -33,13 +39,13 @@ const CurrentPriceTable = ({ startDate, endDate }: Props) => {
     <div className="mb-3">
       <Table striped bordered hover responsive>
         <thead>
-          <tr>
-            <th>Date</th>
-            <th>Vàng miếng SJC (mua)</th>
-            <th>Vàng miếng SJC (bán)</th>
-            <th>Nhẫn tròn trơn VRTL (mua)</th>
-            <th>Nhẫn tròn trơn VRTL (bán)</th>
-          </tr>
+        <tr>
+          <th>Date</th>
+          <th>Vàng miếng SJC (mua)</th>
+          <th>Vàng miếng SJC (bán)</th>
+          <th>Nhẫn tròn trơn VRTL (mua)</th>
+          <th>Nhẫn tròn trơn VRTL (bán)</th>
+        </tr>
         </thead>
         <tbody>
         <tr>
