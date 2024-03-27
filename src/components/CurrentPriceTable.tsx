@@ -11,7 +11,11 @@ interface Props {
 const CurrentPriceTable = ({ startDate, endDate }: Props) => {
   const { data } = useGoldPriceByYearRange(startDate, endDate);
 
-  if (!data) return null;
+  if (!data) return (
+    <div>
+      Something went wrong. Please contact Chester and try again later.
+    </div>
+  );
 
   const yesterdayRecord = data.findLast((item: { updatedAt: number; }) => isSameDay(formatEpochDate(item.updatedAt), startDate));
 
