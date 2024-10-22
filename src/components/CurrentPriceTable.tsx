@@ -10,7 +10,9 @@ interface Props {
 }
 
 const CurrentPriceTable = ({ startDate, endDate }: Props) => {
-  const { data } = useGoldPriceByYearRange(startDate, endDate);
+  const { data, isLoading } = useGoldPriceByYearRange(startDate, endDate);
+
+  if (isLoading) return <div>Loading...</div>;
 
   if (!data) return (
     <div>
